@@ -1,0 +1,96 @@
+Name: ...
+CSE 140
+Homework 7 
+
+For each problem that requires a written answer, write (or copy-and-paste)
+your answers in this file.  When you are done, you should have replaced all
+the ellipses (the three dots) with your answers.
+
+At the end, you will turn in this file along with your modified
+dna_analysis.py program.
+
+
+Problem 1:
+
+(No answers in this file.)
+
+Problem 2:
+
+GC-content: 0.3
+
+Problem 3:
+
+Prefixing with "#" character makes code as a comment and hence python ignore that part of the code.
+The execution of the code by commenting "seq = 0" and "linenum = 0" raised following exception.
+
+..........
+  File "dna_analysis.py", line 38, in <module>
+    linenum = linenum + 1
+NameError: name 'linenum' is not defined
+
+  File "dna_analysis.py", line 43, in <module>
+    seq = seq + line
+NameError: name 'seq' is not defined
+...........
+
+Like other programming languages, python first calculates the value and then assign it to variable (right -> left). Internally, memory is not allocated for the variable linenum. But we are trying to access the value of linenum in the for loop. 
+
+By commenting the code "gc_count = 0" raised the following exception.
+
+..............
+  File "dna_analysis.py", line 64, in <module>
+    gc_count = gc_count + 1
+NameError: name 'gc_count' is not defined
+...............
+
+Problem 4:
+
+GC-content: 0.3
+AT-content: 0.7
+
+Problem 5:
+
+Number of G nucleotides: 1
+Number of C nucleotides: 2
+Number of A nucleotides: 5
+Number of T nucleotides: 2
+
+
+Problem 6:
+
+test-small.fastq : gcat_count,total_count and length_sequence are same.
+For all the below files 
+sample_1.fastq
+sample_2.fastq 
+sample_3.fastq
+sample_4.fastq
+sample_5.fastq
+sample_6.fastq
+test-moderate-gc-1.fastq
+test-moderate-gc-2.fastq
+test-high-gc-1.fastq
+test-high-gc-2.fastq:
+total_count, length_sequence are same and gcat_count is diiferent because in these files apart from G, C, A, T Nucleotides there are other Nucleotides. gact_count is the count of the G, C, A, T Nucleotides where as total_count is the count of the all nucleotides in a sequence and length_sequence is the length of the sequence which is same as total_count.
+
+GC content is not equal to(G+C)/(A+C+G+T)) because GC content is calculated as count of G and C nucleotides to the toal number of nucleotides which has other nucleotides apart from G, C, A, T.
+
+I have corrected the program and calculated GC, AT content ratio as total number of theG and C nucleotides to the toal number of G, C, A, T.
+
+
+Problem 7:
+
+AT/GC Ratio: 1.3223416174746196
+
+
+Problem 8:
+
+GC Classification: Moderate GC content
+
+Collaboration:
+
+No one did.
+
+Reflection:
+
+I have learned assignment, I/O, Iteration and conditional operations in python. Initially i felt difficult in understanding fileinput objects. It would have been better if I did a small assignment on it.
+
