@@ -1,7 +1,7 @@
 #Program: Mailroom Madness
 
 #Datastructure that holds the list of donations and their history
-donation_list = [['manasa', [100, 200]],['bil gates', [3000, 4000]]]
+donation_list = [['dad', [100, 200]],['bil gates', [3000, 4000]], ['suresh nadella', [400, 3000]]]
 
 #Function definition is_name_found returns True if the entered name is already in the list
 def is_name_found(list, iname):
