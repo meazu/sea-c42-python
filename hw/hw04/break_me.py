@@ -1,17 +1,23 @@
-#Function when called throws a name exception.
+# Function when called throws a name exception.
+
+
 def exhibit_name_error():
-    a = 10   
-    sum = a + b # 'b' is not defined and trying sum it with 'a'
+    a = 10
+    sum = a + b   # 'b' is not defined and trying sum it with 'a'
     return sum
 
-#Function when called throws a type exception.        
+# Function when called throws a type exception.
+
+
 def exhibit_type_error():
     a = 10
     b = 'Apple'
-    div = a // b # value of 'a' is int and 'b' is string type and 
-                     # performing divions operation.
+    div = a // b
+    # Value of 'a' is int and 'b' is string type and  performing division.
     return div
-#Function when called throws an attribute exception.
+# Function when called throws an attribute exception.
+
+
 def exhibit_attribute_error():
     a = [10, 20, 30]
     b = 'string'
