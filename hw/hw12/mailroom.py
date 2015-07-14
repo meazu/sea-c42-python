@@ -1,7 +1,7 @@
 # Program: Mailroom Madness
 
 # Datastructure that holds the list of donations and their history
-donation_list = {'dad': [100.00, 200.00], 'bil gates': [3000.00, 4000.00], 'suresh nadella' : [400.00, 3000.00]}
+donation_list = {'dad': [100.00, 200.00, 350.00], 'bil gates': [3000.00, 4000.00], 'suresh nadella' : [400.00, 3000.00]}
 
 # Function definition is_name_found returns
 # True if the entered name is alread in the list.
@@ -63,6 +63,15 @@ def print_report(list):
 
 # This function returns true if the value is number or returns flase.
 
+def thank_file(list):
+    for (name, amount_list) in list.items():
+        file_name = name + '.txt'
+        outfile = open(file_name, 'w')
+        for amount in amount_list:
+            outfile.write('Hi {0}, Thanks for donating ${1} to our organization'.format(name, amount) + '\n')            
+        outfile.close()
+
+
 
 def is_number(value):
     length = len(value)
@@ -74,6 +83,9 @@ def is_number(value):
         return True
     else:
         return False
+
+
+
 #  Main Function
 if __name__ == '__main__':
     var_quit = True
@@ -98,7 +110,9 @@ if __name__ == '__main__':
 
                     prompt_amt = float(amount)
                     add_amount(donation_list, prompt_t, prompt_amt)
-                    print(('Hi %s \nThank you so much for your kind donation of$%r for Homeless people.\nThanks again,\n-Manasa\n\n') % (prompt_t, prompt_amt))
+                    #print(('Hi %s \nThank you so much for your kind donation of$%r for Homeless people.\nThanks again,\n-Manasa\n\n') % (prompt_t, prompt_amt))
+                    thank_file(donation_list)
+                    print(("Thank you note added for file %s for $%r amount") %(prompt_t, prompt_amt))  
                     input('Press enter to continue....')
                 else:
                     add_donar(donation_list, prompt_t)
@@ -110,7 +124,9 @@ if __name__ == '__main__':
 
                     prompt_amt = float(amount)
                     add_amount(donation_list, prompt_t, prompt_amt)
-                    print(('Hi %s \nThank you so much for your kind donation of $%r for Homeless people.\nThanks again,\n-Manasa\n') % (prompt_t, prompt_amt))    
+                    thank_file(donation_list)
+                    print(("File has beed created for %s and thank you note added for $%r amount") %(prompt_t, prompt_amt))        
+                    #print(('Hi %s \nThank you so much for your kind donation of $%r for Homeless people.\nThanks again,\n-Manasa\n') % (prompt_t, prompt_amt))    
                     input('Press enter to continue...')
                     var_quit = True
 
@@ -120,3 +136,5 @@ if __name__ == '__main__':
             input('\nPress enter to continue...')
         elif prompt == 'quit':
             var_quit = False
+        
+
