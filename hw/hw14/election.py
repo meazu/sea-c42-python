@@ -1,4 +1,4 @@
-# Name: ...
+# Name: Manasa Miryala
 # CodeFellows Python F2: SEA-C42
 # Homework 14: Election prediction
 
