@@ -66,8 +66,25 @@ def most_recent_poll_row(poll_rows, pollster, state):
     Given a list of *PollDataRow*s, returns the most recent row with the
     specified *Pollster* and *State*. If no such row exists, returns None.
     """
+    flag = False
+    list_of_dates = []
+    for row in poll_rows:
+        if pollster == row['Pollster'] and state == row['State']:
+            date = row['Date']
+            list_of_dates.append(date)
+    for row in poll_rows:
+        if (pollster ==
+                row['Pollster']) and (state == row['State']) and (max(
+                    list_of_dates) == row['Date']):
+            var = row
+            flag = True
+    if flag is True:
+        return var
+    else:
+        return None
+
     # TODO: Implement this function
-    pass
+    # pass
 
 
 # ###############################################################################
