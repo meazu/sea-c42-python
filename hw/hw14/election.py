@@ -96,8 +96,12 @@ def unique_column_values(rows, column_name):
     Given a list of rows and the name of a column (a string),
     returns a set containing all values in that column.
     """
+    values = set()
+    for row in rows:
+        values.add(row[column_name])
+    return values
     # TODO: Implement this function
-    pass
+    # pass
 
 
 def pollster_predictions(poll_rows):
@@ -105,8 +109,34 @@ def pollster_predictions(poll_rows):
     Given a list of *PollDataRow*s, returns *PollsterPredictions*.
     For a given pollster, uses only the most recent poll for a state.
     """
+    rows = poll_rows
+
+    unique_pollster = set()
+    unique_state = set()
+    unique_pollster = unique_column_values(rows, 'Pollster')
+    unique_state = unique_column_values(rows, 'State')
+    recent_polls = []
+
+    for pollster in list(unique_pollster):
+        for state in list(unique_state):
+            recent_polls.append(most_recent_poll_row(rows, pollster, state))
+    recent_polls_list = [val for val in recent_polls if val is not None]
+
+    dict = {}
+    for pollster in unique_pollster:
+        dict[pollster] = {}
+        for row in recent_polls_list:
+            rpollster = row['Pollster']
+            dem = row['Dem']
+            rep = row['Rep']
+            state = row['State']
+            value = float(dem) - float(rep)
+            if pollster == rpollster:
+                dict[pollster][state] = value
+    return dict
+
     # TODO: Implement this function
-    pass
+    # pass
 
 
 # ###############################################################################
