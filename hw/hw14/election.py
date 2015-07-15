@@ -36,8 +36,16 @@ def state_edges(election_result_rows):
     The input list has no duplicate *States*;
     that is, each *State* is represented at most once in the input list.
     """
+    d = {}
+    for row in election_result_rows:
+        state = row['State']
+        dem = row['Dem']
+        rep = row['Rep']
+        d[state] = float(dem) - float(rep)
+    return d
+
     # TODO: Implement this function
-    pass
+    # pass
 
 
 # ###############################################################################
