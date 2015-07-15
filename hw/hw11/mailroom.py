@@ -1,7 +1,10 @@
 # Program: Mailroom Madness
 
 # Datastructure that holds the list of donations and their history
-donation_list = [['dad', [100, 200]], ['bil gates', [3000, 4000]], ['suresh nadella' [400, 3000]]]
+donation_list = [
+    ['dad', [100, 200]],
+    ['bil gates', [3000, 4000]],
+    ['suresh nadella' [400, 3000]]]
 
 # Function definition is_name_found returns
 # True if the entered name is alread in the list.
@@ -80,9 +83,16 @@ def is_number(value):
 if __name__ == '__main__':
     var_quit = True
     while var_quit is True:
-        prompt = input('\nWelcome to mailroom madness!!! \n\nSelect the options below.\nT - Send a (T)hank You \nR - Create a (R)eport\nquit - Quit the program \n>')    
+        prompt = input(
+            '\nWelcome to mailroom madness!!! \n\n'
+            'Select the options below.\nT - '
+            'Send a (T)hank You \nR - Create a (R)eport\n '
+            'quit - Quit the program \n>')
         if prompt.upper() == 'T':
-            prompt_t = input('Please enter a name, or choose from the following:\nlist - Print a list of previous donors\nquit - Return to main menu  \n>')
+            prompt_t = input(
+                'Please enter a name, or choose from the following'
+                ':\nlist - Print a list of previous donors\nquit -'
+                'Return to main menu  \n>')
             if prompt_t.lower() == 'list':
                 print('List of the donars\n.................')
                 for list in get_list_of_donars(donation_list):
@@ -100,7 +110,10 @@ if __name__ == '__main__':
 
                     prompt_amt = float(amount)
                     add_amount(donation_list, prompt_t, prompt_amt)
-                    print(('Hi %s \nThank you so much for your kind donation of$%r for Homeless people.\nThanks again,\n-Manasa\n\n') % (prompt_t, prompt_amt))
+                    print((
+                        'Hi %s \nThank you so much for your kind donation '
+                        'of $%r for Homeless people.\n'
+                        'Thanks again,\n-Manasa\n\n') % (prompt_t, prompt_amt))
                     input('Press enter to continue....')
                 else:
                     add_donar(donation_list, prompt_t)
@@ -112,7 +125,10 @@ if __name__ == '__main__':
 
                     prompt_amt = float(amount)
                     add_amount(donation_list, prompt_t, prompt_amt)
-                    print(('Hi %s \nThank you so much for your kind donation of $%r for Homeless people.\nThanks again,\n-Manasa\n') % (prompt_t, prompt_amt))    
+                    print((
+                        'Hi %s \nThank you so much for your kind donation of'
+                        '$%r for Homeless people.\nThanks again,\n-'
+                        'Manasa\n') % (prompt_t, prompt_amt))
                     input('Press enter to continue...')
                     var_quit = True
 
